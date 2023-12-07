@@ -2,15 +2,21 @@
 add_library(core
   src/check_names.cc
   src/counter.cc
+  src/counter_enhanced.cc
   src/detail/builder.cc
+  src/detail/builder_enhanced.cc
   src/detail/ckms_quantiles.cc
   src/detail/time_window_quantiles.cc
   src/detail/utils.cc
   src/family.cc
+  src/family_enhanced.cc
   src/gauge.cc
+  src/gauge_enhanced.cc
   src/histogram.cc
+  src/histogram_enhanced.cc
   src/info.cc
   src/registry.cc
+  src/registry_enhanced.cc
   src/serializer.cc
   src/summary.cc
   src/text_serializer.cc

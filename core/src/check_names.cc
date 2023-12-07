@@ -74,6 +74,7 @@ bool CheckLabelName(const std::string& name, MetricType type) {
   };
 
   if ((type == MetricType::Histogram && name == "le") ||
+      (type == MetricType::HistogramEnhanced && name == "le") ||
       (type == MetricType::Summary && name == "quantile")) {
     return false;
   }

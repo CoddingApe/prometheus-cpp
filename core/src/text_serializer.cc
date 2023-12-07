@@ -165,7 +165,19 @@ void SerializeFamily(std::ostream& out, const MetricFamily& family) {
         SerializeCounter(out, family, metric);
       }
       break;
+    case MetricType::CounterEnhanced:
+      out << "# TYPE " << family.name << " counter\n";
+      for (auto& metric : family.metric) {
+        SerializeCounter(out, family, metric);
+      }
+      break;
     case MetricType::Gauge:
+      out << "# TYPE " << family.name << " gauge\n";
+      for (auto& metric : family.metric) {
+        SerializeGauge(out, family, metric);
+      }
+      break;
+    case MetricType::GaugeEnhanced:
       out << "# TYPE " << family.name << " gauge\n";
       for (auto& metric : family.metric) {
         SerializeGauge(out, family, metric);
@@ -192,6 +204,12 @@ void SerializeFamily(std::ostream& out, const MetricFamily& family) {
       }
       break;
     case MetricType::Histogram:
+      out << "# TYPE " << family.name << " histogram\n";
+      for (auto& metric : family.metric) {
+        SerializeHistogram(out, family, metric);
+      }
+      break;
+    case MetricType::HistogramEnhanced:
       out << "# TYPE " << family.name << " histogram\n";
       for (auto& metric : family.metric) {
         SerializeHistogram(out, family, metric);
